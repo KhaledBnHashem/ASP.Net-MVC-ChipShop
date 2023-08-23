@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ChipOrderApp.Models.Product>
+
+<div class="container">
+    <h2 class="my-4">Products</h2>
+    <div class="list-group">
+        @foreach (var product in Model)
+        {
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="mb-1">@product.Name</h5>
+                    <p class="mb-1">Prijs: @product.Price €</p>
+                </div>
+                <div>
+                    <a asp-controller="Cart" asp-action="Add" asp-route-id="@product.Id" class="btn btn-primary">Voeg toe aan winkelwagen</a>
+                </div>
+            </div>
+        }
+    </div>
+    <a asp-controller="Cart" asp-action="Index" class="btn btn-success mt-3">Check shopping cart</a>
+</div>
